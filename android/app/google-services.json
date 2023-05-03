@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "398631040958",
+    "project_id": "oregontrail-b252f",
+    "storage_bucket": "oregontrail-b252f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398631040958:android:478a331eec5b7f2d986bef",
+        "android_client_info": {
+          "package_name": "com.example.oregon_trail"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398631040958-eqjskg05nntggj3ou9qun7g0j6mr4i2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhFepv7dbTzkPN_YVutnpURyA6gmpKm_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398631040958-eqjskg05nntggj3ou9qun7g0j6mr4i2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
