@@ -2,9 +2,9 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
 Map<String, String> locationNicknames = {
-  '1600 Amphitheatre Parkway, Mountain View, CA 94043': 'Google HQ',
-  '1600 Pennsylvania Ave NW, Washington, DC 20500': 'The White House',
-  '1600 Saratoga Ave, San Jose, CA 95129': 'Westgate Center',
+  '26698 OR-62, Trail, OR 97541': 'Trail Oregon AirBnB',
+  'Ocean View Inn, 270 US-101, Crescent City, CA 95531': 'Ocean View',
+  '6855 S Virginia St, Reno, NV 89511': 'Reno Hotel',
   '9245 S Jefferson CV, Sandy, UT 84070': 'Utah Home Base',
 };
 
@@ -28,3 +28,5 @@ Future<String> getClosestLocationNickname(int accuracy) async {
   }
   return closestLocationNickname;
 }
+
+List<String> sentNotifications = [];

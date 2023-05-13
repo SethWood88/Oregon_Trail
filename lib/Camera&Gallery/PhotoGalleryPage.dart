@@ -38,10 +38,7 @@ class _PhotoGalleryWidgetState extends State<PhotoGalleryWidget> {
 
   Future<void> _onPictureTaken(File imageFile) async {
     Directory appDocDir = await getApplicationDocumentsDirectory();
-    String fileName = DateTime
-        .now()
-        .millisecondsSinceEpoch
-        .toString() + '.jpg';
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString() + '.jpg';
     File savedImage = await imageFile.copy('${appDocDir.path}/$fileName');
     _getPhotoList();
   }
@@ -53,71 +50,75 @@ class _PhotoGalleryWidgetState extends State<PhotoGalleryWidget> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Column(children: [Divider(color: Colors.black, thickness: 16),
-            Center(child: Text('Gallery',
-                style: TextStyle(color: Colors.green[900], fontSize: 28))),
-            Divider(color: Colors.black, thickness: 16),],),),
+          Column(
+            children: [
+              Divider(color: Colors.black, thickness: 3),
+              Center(
+                  child: Text('Gallery',
+                      style:
+                          TextStyle(color: Colors.green[900], fontSize: 28))),
+              Divider(color: Colors.black, thickness: 3),
+            ],
+          ),
           Expanded(
             child: _photoList.isEmpty
                 ? Center(child: Text('No Photos'))
                 : GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 2.0,
-                mainAxisSpacing: 2.0,
-              ),
-              physics: BouncingScrollPhysics(),
-              itemCount: _photoList.length,
-              itemBuilder: (BuildContext context, int index) {
-                File photo = _photoList[index];
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            Scaffold(
-                              body: Center(
-                                child: Image.file(photo),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 2.0,
+                      mainAxisSpacing: 2.0,
+                    ),
+                    physics: BouncingScrollPhysics(),
+                    itemCount: _photoList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      File photo = _photoList[index];
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Scaffold(
+                                body: Center(
+                                  child: Image.file(photo),
+                                ),
                               ),
                             ),
-                      ),
-                    );
-                  },
-                  onLongPress: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Delete Photo?'),
-                          content: Text(
-                              'Are you sure you want to delete this photo?'),
-                          actions: <Widget>[
-                            RawMaterialButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: Text('Cancel'),
-                            ),
-                            RawMaterialButton(
-                              onPressed: () {
-                                _deletePhoto(photo);
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                'Delete',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: Image.file(photo, fit: BoxFit.cover),
-                );
-              },
-            ),
+                          );
+                        },
+                        onLongPress: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('Delete Photo?'),
+                                content: Text(
+                                    'Are you sure you want to delete this photo?'),
+                                actions: <Widget>[
+                                  RawMaterialButton(
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(),
+                                    child: Text('Cancel'),
+                                  ),
+                                  RawMaterialButton(
+                                    onPressed: () {
+                                      _deletePhoto(photo);
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text(
+                                      'Delete',
+                                      style: TextStyle(color: Colors.red),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        child: Image.file(photo, fit: BoxFit.cover),
+                      );
+                    },
+                  ),
           ),
         ],
       ),

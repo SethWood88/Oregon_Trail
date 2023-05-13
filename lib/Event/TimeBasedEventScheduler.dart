@@ -4,6 +4,8 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:oregon_trail/Event/Events.dart';
 import 'package:timezone/timezone.dart' as tz;
 
+import '../Adjustables/globals.dart';
+
 class TimeBasedEventScheduler {
   final FlutterLocalNotificationsPlugin notificationsPlugin;
   final List<TragedyEvent> events;
@@ -52,5 +54,7 @@ class TimeBasedEventScheduler {
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );
+
+    sentNotifications.add('${event.name} - ${event.description} - ${DateTime.now()}');
   }
 }

@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:oregon_trail/Event/Events.dart';
-
+import '../Adjustables/globals.dart';
 
 class LocationBasedEventTrigger {
   final FlutterLocalNotificationsPlugin notificationsPlugin;
   final double proximityRadius;
+  DateTime lastNotificationSentTime;
 
   LocationBasedEventTrigger({
     this.notificationsPlugin,
@@ -40,11 +41,19 @@ class LocationBasedEventTrigger {
 
       if (distance <= event.proximityRadius) {
         // Within proximity radius, schedule notification
+        if (lastNotificationSentTime != null) {
+          // Check if enough time has passed since last notification
+          final timeSinceLastNotification =
+          DateTime.now().difference(lastNotificationSentTime);
+          if (timeSinceLastNotification.inSeconds < 30) {
+            continue; // Skip this event if not enough time has passed
+          }
+        }
         await scheduleNotificationForEvent(event);
+        lastNotificationSentTime = DateTime.now();
       }
     }
   }
-
 
   Future<void> scheduleNotificationForEvent(TragedyEvent event) async {
     final androidDetails = AndroidNotificationDetails(
@@ -63,5 +72,8 @@ class LocationBasedEventTrigger {
       platformDetails,
       payload: event.id.toString(),
     );
+
+    sentNotifications
+        .add('${event.name} - ${event.description} - ${DateTime.now()}');
   }
 }

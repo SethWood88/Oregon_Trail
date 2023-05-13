@@ -50,7 +50,8 @@ class WelcomePage extends StatelessWidget {
         ),
         Column(
           children: [
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
+            const Divider(color: Colors.black, thickness: 3),
             Text(
               "Instructions",
               style: TextStyle(
@@ -59,46 +60,57 @@ class WelcomePage extends StatelessWidget {
                 color: Colors.green[900],
               ),
             ),
+            const Divider(color: Colors.black, thickness: 3),
             const SizedBox(height: 20),
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Hey Beautiful, Yes I made this app from scratch like fresh dough. This should work perfectly...Maybe but we will see.",
-                        style: TextStyle(
-                          fontSize: 22,
-                        ),
-                      ),
                       const SizedBox(height: 10),
                       Text(
-                        "1. Start: Start your journey and travel across the desert to Oregon Trail",
+                        "These are the rules of the game:",
                         style: TextStyle(fontSize: 20),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "2. Tragedies: This is the Oregon trail after all, bad things may happen. These are called Tragedies. These will randomly happen at random times to one of us randomly. This will go on throughout the whole journey. (You must do what they say.)",
+                        "1. Tragedies: This is the Oregon trail after all, bad things may happen. These are called Tragedies. These will randomly happen at random times to one of us randomly. This will go on throughout the whole journey. (You must do what they say.)",
                         style: TextStyle(fontSize: 20),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "3. Boredom Events: Sometimes life gets boring at times and you need things to do.",
+                        "2. Random Events: Sometimes life gets boring at times and you need things to do.",
                         style: TextStyle(fontSize: 20),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "4. Timing: Keeping a tight schedule will be important for this to work but dont worry there is plenty of downtime throughout.",
+                        "3. Timing: Keeping a tight schedule will be important for this to work but dont worry there is plenty of downtime throughout.",
                         style: TextStyle(fontSize: 20),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "5. Remember to just have fun and listen and follow your guide (Seth) if you want to come out of this alive. ",
+                        "4. Remember to just have fun and listen and follow your guide (Seth) if you want to come out of this alive. ",
                         style: TextStyle(fontSize: 20),
                       ),
-                      const SizedBox(height: 50),
+                      Divider(color: Colors.black, thickness: 3),
+                      const SizedBox(height: 20),
+                      Text(
+                        "Dashboard: When you reach a main location you will have a set of tasks to complete. Check there every time you stop at an important location.",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "Notifications: You will be notified when any type of event occures. Sometimes the event descriptions are lengthy so they will appear on the notifications page as well if you miss them.",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "Gallery: Take lots of photos. They will be captured in the gallery.",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),

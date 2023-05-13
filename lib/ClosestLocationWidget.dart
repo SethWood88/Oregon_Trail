@@ -38,14 +38,14 @@ class ClosestLocationWidget extends StatefulWidget {
 
   static List<String> getTasksForLocation(String locationNickname) {
     switch (locationNickname) {
-      case 'Google HQ':
-        return ['Task 1 for Google HQ', 'Task 2 for Google HQ', 'Task 3 for Google HQ'];
-      case 'The White House':
-        return ['Task 1 for The White House', 'Task 2 for The White House', 'Task 3 for The White House'];
-      case 'Westgate Center':
-        return ['Task 1 for Westgate Center', 'Task 2 for Westgate Center', 'Task 3 for Westgate Center'];
+      case 'Trail Oregon AirBnB':
+        return ['Find a mushroom', 'Take a quick dip in the river', 'Wave at the house as you go by', 'Roast some marshmallows', 'Have seth teach you a new skill and you dont complain', 'Take a pictue of the wildlife', 'Take a picture of yourselves here', 'Have amazing shower sex, if there is one lol', "Play some games in the game room"];
+      case 'Ocean View':
+        return ['Get in that jacuzzi baby', 'Walk around the city', 'Take a photo of us with our view', 'Record audio for our kids. Something short and sweet', 'Take a picture of all the animals you can find. Maybe even a seal if you are lucky'];
+      case 'Reno Hotel':
+        return ['Take a pic of that ring baby', 'More sex if not too tired', 'Might as well pick up some weed', 'Cuddle for at least 30 minutes'];
       case 'Utah Home Base':
-        return ['All Ready To Go?', 'Find a Homeless man and give him some ice cream', 'Dont die', 'Make your bed', "Have a slumber party"];
+        return ['I Love you','I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you', 'I Love you',];
       default:
         return [];
     }
